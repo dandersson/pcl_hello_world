@@ -164,7 +164,7 @@ void PCLViewer::bindEvents()
 
 void PCLViewer::loadIcons()
 {
-    auto s = style();
+    const auto &s = style();
     icons["dir"] = s->standardIcon(QStyle::SP_DirOpenIcon);
     icons["next"] = s->standardIcon(QStyle::SP_MediaSkipForward);
     icons["play"] = s->standardIcon(QStyle::SP_MediaPlay);
