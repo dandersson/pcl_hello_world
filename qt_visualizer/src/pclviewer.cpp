@@ -1,5 +1,7 @@
 #include <ctime>
-#include <glob.h>
+#ifndef _WIN32
+    #include <glob.h>
+#endif
 #include <iostream>
 #include <map>
 #include <string>
@@ -184,6 +186,10 @@ void PCLViewer::setupPlayTimer(const int ms)
 
 void PCLViewer::loadPCDFilesFromDir(const std::string dir)
 {
+#ifdef _WIN32
+    std::cerr << "Glob not yet implemented for Windows!\n" << std::endl;
+    exit(2);
+#endif
     glob_t globbuf;
     std::string PCDGlob = dir + "/*.pcd";
     int status = glob(PCDGlob.c_str(), 0, NULL, &globbuf);
