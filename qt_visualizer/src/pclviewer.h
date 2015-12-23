@@ -54,13 +54,13 @@ private:
     Ui::PCLViewer *ui;
     bool advancing;
     map<string, QIcon> icons;
-    shared_ptr<pcl::visualization::PCLVisualizer> viewer;
-    string PCDDir;
     map<string, int> viewPortIDs;
+    shared_ptr<pcl::visualization::PCLVisualizer> viewer;
+    size_t loadPCDFilesFromDir(const string dir);
+    string PCDDir;
     vector<string> PCDFiles;
     vector<string>::const_iterator PCDIterator;
     void loadIcons();
-    void loadPCDFilesFromDir(const string dir);
 
     void advanceFrame();
     void bindEvents();

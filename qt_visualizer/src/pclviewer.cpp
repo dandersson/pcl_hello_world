@@ -184,7 +184,7 @@ void PCLViewer::setupPlayTimer(const int ms)
     playTimer->setInterval(ms);
 }
 
-void PCLViewer::loadPCDFilesFromDir(const std::string dir)
+size_t PCLViewer::loadPCDFilesFromDir(const std::string dir)
 {
 #ifdef _WIN32
     std::cerr << "Glob not yet implemented for Windows!\n" << std::endl;
@@ -196,7 +196,7 @@ void PCLViewer::loadPCDFilesFromDir(const std::string dir)
     if (status != 0) {
         std::cerr << "Could not load input files: no match for <"
             << PCDGlob << ">." << std::endl;
-        return;
+        return 0;
     }
 
     PCDFiles.assign(globbuf.gl_pathv, globbuf.gl_pathv + globbuf.gl_pathc);
@@ -210,6 +210,7 @@ void PCLViewer::loadPCDFilesFromDir(const std::string dir)
     ui->advanceFrameButton->setEnabled(true);
     ui->playPauseButton->setEnabled(true);
     ui->PCDDirLabel->setText(QString::fromStdString(PCDDir));
+    return PCDFiles.size();
 }
 
 void PCLViewer::loadCurrentPCD()
