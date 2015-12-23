@@ -31,10 +31,9 @@ PCLViewer::PCLViewer(std::string dir, QWidget *parent) :
 
     if (!dir.empty()) {
         std::cout << "Loading initial directory <" << dir << ">." << std::endl;
-        loadPCDFilesFromDir(dir);
-        loadCurrentPCD();
+        if (loadPCDFilesFromDir(dir))
+            loadCurrentPCD();
     }
-
     viewer->addPointCloud(cloud, "cloud");
     ui->qvtkWidget->update();
 }
