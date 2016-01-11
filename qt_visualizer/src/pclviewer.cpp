@@ -97,68 +97,68 @@ void PCLViewer::bindEvents()
 {
     connect(
         ui->advanceFrameButton,
-        SIGNAL(clicked()),
+        &QPushButton::clicked,
         this,
-        SLOT(advanceFrameButtonClicked())
+        &PCLViewer::advanceFrameButtonClicked
     );
 
     connect(
         ui->frameSlider,
-        SIGNAL(valueChanged(int)),
+        &QSlider::valueChanged,
         this,
-        SLOT(frameSliderValueChanged(int))
+        &PCLViewer::frameSliderValueChanged
     );
 
     connect(
         ui->pointSizeSlider,
-        SIGNAL(valueChanged(int)),
+        &QSlider::valueChanged,
         this,
-        SLOT(pointSizeSliderValueChanged(int))
+        &PCLViewer::pointSizeSliderValueChanged
     );
 
     connect(
         ui->browsePCDDirButton,
-        SIGNAL(clicked()),
+        &QPushButton::clicked,
         this,
-        SLOT(browsePCDDirButtonClicked())
+        &PCLViewer::browsePCDDirButtonClicked
     );
 
     connect(
         ui->playPauseButton,
-        SIGNAL(clicked()),
+        &QPushButton::clicked,
         this,
-        SLOT(playPauseButtonClicked())
+        &PCLViewer::playPauseButtonClicked
     );
 
     connect(
         ui->dumpCameraPositionButton,
-        SIGNAL(clicked()),
+        &QPushButton::clicked,
         this,
-        SLOT(dumpCameraPositionButtonClicked())
+        &PCLViewer::dumpCameraPositionButtonClicked
     );
 
     connect(
         ui->toFPVButton,
-        SIGNAL(clicked()),
+        &QPushButton::clicked,
         this,
-        SLOT(toFPVButtonClicked())
+        &PCLViewer::toFPVButtonClicked
     );
 
     connect(
         ui->toTopDownButton,
-        SIGNAL(clicked()),
+        &QPushButton::clicked,
         this,
-        SLOT(toTopDownButtonClicked())
+        &PCLViewer::toTopDownButtonClicked
     );
 
     connect(
         ui->resetCamerasButton,
-        SIGNAL(clicked()),
+        &QPushButton::clicked,
         this,
-        SLOT(resetCamerasButtonClicked())
+        &PCLViewer::resetCamerasButtonClicked
     );
 
-    connect(playTimer, SIGNAL(timeout()), this, SLOT(playTimerTimeout()));
+    connect(playTimer, &QTimer::timeout, this, &PCLViewer::playTimerTimeout);
 }
 
 void PCLViewer::loadIcons()
